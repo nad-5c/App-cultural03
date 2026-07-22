@@ -1,0 +1,22 @@
+<h1>🇵🇪 Quiz de Cultura Peruana</h1>
+
+<h2 id="puntos">⭐ Puntos: 0</h2>
+
+<h3 id="pregunta"></h3>
+
+<button class="opcion" id="a" onclick="responder(0)"></button>
+<button class="opcion" id="b" onclick="responder(1)"></button>
+<button class="opcion" id="c" onclick="responder(2)"></button>
+<button class="opcion" id="d" onclick="responder(3)"></button>
+
+<div id="curioso">
+    <h2>💡 Dato Curioso</h2>
+
+    <button id="btnDato" onclick="datoCurioso()">
+        Mostrar dato curioso
+    </button>
+
+    <p id="dato">
+        Presiona el botón para descubrir un dato sobre el Perú.
+    </p>
+</div>
