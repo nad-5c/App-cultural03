@@ -1,0 +1,17 @@
+function datoCurioso(){
+
+let n=Math.floor(Math.random()*datos.length);
+
+let cuadro=document.getElementById("dato");
+
+cuadro.style.opacity=0;
+
+setTimeout(function(){
+
+cuadro.innerHTML="🇵🇪 "+datos[n];
+
+cuadro.style.opacity=1;
+
+},200);
+
+}
