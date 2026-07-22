@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cultura Peruana Quiz</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f2f2f2;
+text-align:center;
+padding:20px;
+}
+.container{
+max-width:600px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px gray;
+}
+button{
+display:block;
+width:100%;
+padding:12px;
+margin:10px 0;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#007bff;
+color:white;
+}
+button:hover{
+background:#0056b3;
+}
+#dato{
+margin-top:20px;
+color:green;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>🇵🇪 Quiz de Cultura Peruana</h1>
+
+<h2 id="puntos">Puntos: 0</h2>
+
+<h3 id="pregunta"></h3>
+
+<button id="a" onclick="responder(0)"></button>
+<button id="b" onclick="responder(1)"></button>
+<button id="c" onclick="responder(2)"></button>
+<button id="d" onclick="responder(3)"></button>
+
+<button onclick="datoCurioso()">Dato Curioso</button>
+
+<p id="dato"></p>
+
+</div>
+
+<script>
+
+let puntos=0;
+let actual=0;
+
+const preguntas=[
+
+{
+p:"¿Cuál es la capital del Perú?",
+o:["Cusco","Lima","Piura","Tacna"],
+r:1
+},
+
+{
+p:"¿Dónde está Machu Picchu?",
+o:["Ica","Cusco","Puno","Arequipa"],
+r:1
+},
+
+{
+p:"¿Cuál es la moneda del Perú?",
+o:["Peso","Sol","Dólar","Euro"],
+r:1
+},
+
+{
+p:"¿Cuál es el plato bandera?",
+o:["Pizza","Ceviche","Lasaña","Hamburguesa"],
+r:1
+},
+
+{
+p:"¿Qué animal representa al Perú?",
+o:["Cóndor","León","Tigre","Jirafa"],
+r:0
+},
+
+{
+p:"¿Qué civilización construyó Machu Picchu?",
+o:["Nazca","Inca","Moche","Chimú"],
+r:1
+},
+
+{
+p:"¿Cuál es el lago navegable más alto del mundo?",
+o:["Titicaca","Junín","Sandoval","Llanganuco"],
+r:0
+},
+
+{
+p:"¿Cuántas regiones naturales propuso Pulgar Vidal?",
+o:["3","8","5","6"],
+r:1
+},
+
+{
+p:"¿Cuál es la flor nacional?",
+o:["Rosa","Cantuta","Tulipán","Margarita"],
+r:1
+},
+
+{
+p:"¿Qué desierto tiene Huacachina?",
+o:["Atacama","Ica","Nazca","Sechura"],
+r:1
+}
+
+];
+
+const datos=[
+"Perú tiene más de 3000 variedades de papa.",
+"Caral es la ciudad más antigua de América.",
+"El Amazonas nace en Perú.",
+"El ceviche es Patrimonio Cultural.",
+"El cóndor puede vivir más de 70 años.",
+"Perú posee costa, sierra y selva.",
+"El Inti Raymi celebra al dios Sol.",
+"El lago Titicaca es compartido con Bolivia.",
+"La alpaca produce una de las lanas más finas.",
+"Perú tiene 12 patrimonios de la UNESCO."
+];
+
+function cargar(){
+
+document.getElementById("pregunta").innerHTML=preguntas[actual].p;
+
+document.getElementById("a").innerHTML=preguntas[actual].o[0];
+
+document.getElementById("b").innerHTML=preguntas[actual].o[1];
+
+document.getElementById("c").innerHTML=preguntas[actual].o[2];
+
+document.getElementById("d").innerHTML=preguntas[actual].o[3];
+
+}
+
+function responder(op){
+
+if(op==preguntas[actual].r){
+
+puntos+=10;
+
+alert("✅ Correcto");
+
+}else{
+
+alert("❌ Incorrecto");
+
+}
+
+document.getElementById("puntos").innerHTML="Puntos: "+puntos;
+
+actual++;
+
+if(actual<preguntas.length){
+
+cargar();
+
+}else{
+
+document.body.innerHTML="<h1>🎉 Juego terminado</h1><h2>Obtuviste "+puntos+" puntos de "+(preguntas.length*10)+"</h2>";
+
+}
+
+}
+
+function datoCurioso(){
+
+let n=Math.floor(Math.random()*datos.length);
+
+document.getElementById("dato").innerHTML=datos[n];
+
+}
+
+cargar();
+
+</script>
+
+</body>
+</html>
